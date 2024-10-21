@@ -14,25 +14,30 @@ layout: default
   <div id="notes-entry-container">
     <content>
       {{ content }}
-      <p>This line appears after every note.</p>
+
     </content>
 
     <side style="font-size: 0.9em">
-      <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
+      <h3 style="margin-bottom: 1em">연관된 노트</h3>
       {% if page.backlinks.size > 0 %}
       <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
-      {% for backlink in page.backlinks %}
+        {% for backlink in page.backlinks %}
         <div class="backlink-box">
-        <a class="internal-link" href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a><br>
-        <div style="font-size: 0.9em">{{ backlink.excerpt | strip_html | truncatewords: 20 }}</div>
+          <a class="internal-link"
+            href="{{ site.baseurl }}{{ backlink.url }}{%- if site.use_html_extension -%}.html{%- endif -%}">
+            <strong>{{ backlink.title }}</strong>
+          </a><br>
+          <div style="font-size: 0.9em">
+            {{ backlink.excerpt | strip_html | truncatewords: 20 | replace: "[[", "<span style='color: #888;'>" |
+              replace: "]]", "</span>" }}
+          </div>
         </div>
-      {% endfor %}
+        {% endfor %}
       </div>
       {% else %}
-
       <div style="font-size: 0.9em">
         <p>
-          There are no notes linking to this note.
+          연관된 노트가 없습니다. 추가하러 가세요.
         </p>
       </div>
       {% endif %}
@@ -42,6 +47,6 @@ layout: default
 
 <hr>
 
-<p>Here are all the notes in this garden, along with their links, visualized as a graph.</p>
+<p style="font-weight: bold;">AWS Universe</p>
 
 {% include notes_graph.html %}

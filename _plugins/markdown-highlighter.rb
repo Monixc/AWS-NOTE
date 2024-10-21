@@ -15,4 +15,7 @@ end
 
 def replace(doc)
   doc.content.gsub!(/==+([^ ](.*?)?[^ .=])==+/, "<mark>\\1</mark>")
+  doc.content.gsub!(/>\s*\[!note\]\s*(.*)$/) do |match|
+    "> ⭐ <span style='display:none;'>#{$1.strip}</span>"
+  end
 end
