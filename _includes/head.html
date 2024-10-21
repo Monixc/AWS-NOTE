@@ -5,7 +5,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="description"
+    content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.title }}{% endif %}">
 
   <meta property="og:site_name" content="{{ site.title }}">
 
@@ -13,10 +14,13 @@
 
   <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
 
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+
   {% if page.excerpt %}
-  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}"/>
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />
   {% else %}
-  <meta property="og:description" content="{{ site.title | strip_html | strip_newlines | truncate: 160 }}"/>
+  <meta property="og:description" content="{{ site.title | strip_html | strip_newlines | truncate: 160 }}" />
   {% endif %}
 
   {% if page.title %}
@@ -40,9 +44,9 @@
 
   <title>
     {% if page.id == "home" %}
-      {{ site.title }}
+    {{ site.title }}
     {% else %}
-      {{ page.title }} &mdash; {{ site.title }}
+    {{ page.title }} &mdash; {{ site.title }}
     {% endif %}
   </title>
 </head>
