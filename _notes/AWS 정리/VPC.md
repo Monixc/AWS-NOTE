@@ -1,3 +1,6 @@
+---
+---
+
 > [!note] VPC
 > Amazon Virtual Private Cloud, AWS [[클라우드 구축 모델#퍼블릭 클라우드]] 안에서 논리적으로 격리된 **가상의 클라우드 네트워크**
 

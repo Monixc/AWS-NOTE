@@ -1,3 +1,6 @@
+---
+---
+
 > [!note] EBS
 > Amazon [[EC2#Elastic]] Block Store, [[인스턴스]]에 연결 및 제거를 하는 형태로 구성된 블록 스토리지
 
