@@ -28,8 +28,11 @@ layout: default
             <strong>{{ backlink.title }}</strong>
           </a><br>
           <div style="font-size: 0.9em">
-            {{ backlink.excerpt | strip_html | truncatewords: 20 | replace: "[[", "<span style='display:none;'>" |
-              replace: "]]", "</span>" | replace: "#", "<span style='color: #888;'>" }}
+            {% assign preview_content = backlink.excerpt | strip_html | truncatewords: 20 %}
+            {% assign preview_content = preview_content | replace: "[!note]", "" | strip %}
+            {% assign preview_content = preview_content | replace: "[[", "" | replace: "]]", "" %}
+            {% assign preview_content = preview_content | replace: "|", "" %}
+            {{ preview_content | split: "#" | last }}
           </div>
         </div>
         {% endfor %}

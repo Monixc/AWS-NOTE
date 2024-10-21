@@ -45,6 +45,7 @@ class BidirectionalLinksGenerator < Jekyll::Generator
         # Handle regular links
         anchor_tag = "<a class='internal-link' href='#{new_href}'>\\1</a>"
 
+        # Replace double-bracketed links using note title
         current_note.content.gsub!(
           /\[\[(#{note_title_regexp_pattern}|#{title_from_data})\]\]/i,
           anchor_tag
